@@ -1,6 +1,6 @@
 # Jaunt Challenge
 
-### Spec
+## Spec
 
 ### Corpus:
 The input to your program is a text file containing a list of restaurants. The format for the file is:
