@@ -406,19 +406,6 @@ class Dataset(object):
         logger.debug("Calculating total amount of unique restaurants")
         return len(self.__dataset[self.MetaAttribute.PLACE_SLUG].unique())
 
-    def get_maximum_distance(self) -> np.ndarray:
-        """
-        This method returns the largest distance
-        between 2 restaurants in the dataset.
-
-        @raises: AttributeError:
-        """
-        logger.debug("Finding the maximum distance.")
-        if self.__distances is None:
-            raise AttributeError("Distances not calculated.")
-        print(self.__distances)
-        raise Exception(3)
-
     def get_expensive_restaurants(self,
                                   threshold: float=1,
                                   limit: int=10) -> np.ndarray:
