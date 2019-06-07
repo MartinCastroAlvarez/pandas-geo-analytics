@@ -582,8 +582,10 @@ class Task(object):
         if not isinstance(limit, int):
             limit = int(limit)
         print(self.SEPARATOR)
-        print("1.1: Total Restaurants:", self.__dataset.get_total_restaurants())
-        print("1.2: Unique Restaurants:", self.__dataset.get_total_unique_restaurants())
+        print("1.1: Total Restaurants:",
+              self.__dataset.get_total_restaurants())
+        print("1.2: Unique Restaurants:",
+              self.__dataset.get_total_unique_restaurants())
         print(self.SEPARATOR)
         print("2.1: Furthest Restaurants:")
         print(self.__dataset.get_furthest_restaurants(limit=limit))
