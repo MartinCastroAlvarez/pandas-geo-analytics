@@ -444,8 +444,8 @@ class Dataset(object):
             raise ValueError("Limit is too low.")
         sort_by = self.MetaAttribute.TIPS_FOOD_SCORE
         cols = [self.MetaAttribute.PLACE_TITLE, sort_by]
-        d = self.__dataset.drop_duplicates(sort_by)
-        query = d[cols]
+        query = self.__dataset.drop_duplicates(sort_by)
+        query = query[cols]
         query = query.sort_values(sort_by, ascending=False)
         return query.head(limit)
 
@@ -463,8 +463,8 @@ class Dataset(object):
             raise ValueError("Limit is too low.")
         sort_by = self.MetaAttribute.TIPS_DRINKS_SCORE
         cols = [self.MetaAttribute.PLACE_TITLE, sort_by]
-        d = self.__dataset.drop_duplicates(sort_by)
-        query = d[cols]
+        query = self.__dataset.drop_duplicates(sort_by)
+        query = query[cols]
         query = query.sort_values(sort_by, ascending=False)
         return query.head(limit)
 
