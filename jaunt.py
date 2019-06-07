@@ -241,7 +241,8 @@ class Dataset(object):
         slugified title of each restaurant.
         """
         logger.debug("Generating slugified restaurant name.")
-        col = self.__dataset[self.MetaAttribute.PLACE_TITLE].apply(get_slugify_name)
+        col = self.__dataset[self.MetaAttribute.PLACE_TITLE].apply(\
+            get_slugify_name)
         self.__dataset[self.MetaAttribute.PLACE_SLUG] = col
 
     def set_tips_food_score(self) -> None:
@@ -281,21 +282,46 @@ class Dataset(object):
         """
         logger.debug("Calculating restaurant distances.")
         d = self.__dataset.drop_duplicates(self.MetaAttribute.PLACE_SLUG)
+        # This triangulates the distances matrix:
         d_matrix = (
-            (
-                x[self.MetaAttribute.PLACE_SLUG],
-                y[self.MetaAttribute.PLACE_SLUG],
-                get_distance(x_lat=x[self.Attribute.LATITUDE],
-                             y_lat=y[self.Attribute.LATITUDE],
-                             x_long=x[self.Attribute.LONGITUDE],
-                             y_long=y[self.Attribute.LONGITUDE])
-            )
+            (x, y)
             for id_x, x in d.iterrows()
             for id_y, y in d.iterrows()
-            # This triangulates the distances matrix:
             if id_y > id_x
-            # This removes the diagonals of the distances matrix:
-            and x[self.MetaAttribute.PLACE_SLUG] != y[self.MetaAttribute.PLACE_SLUG]
+        )
+        # This removes the diagonals of the distances matrix:
+        d_matrix = (
+            (x, y)
+            for x, y in d_matrix
+            if x[self.MetaAttribute.PLACE_SLUG] \
+                != y[self.MetaAttribute.PLACE_SLUG]
+        )
+        # This expands the matrix into tuples.
+        d_matrix = (
+            ((
+                x[self.MetaAttribute.PLACE_SLUG],
+                x[self.Attribute.LATITUDE],
+                x[self.Attribute.LONGITUDE],
+            ),
+            (
+                y[self.MetaAttribute.PLACE_SLUG],
+                y[self.Attribute.LATITUDE],
+                y[self.Attribute.LONGITUDE],
+            ))
+            for x, y in d_matrix
+        )
+        # This sorts $x and $y alphabetically.
+        d_matrix = (
+            (x, y) if x[0] < y[0] else (y, x)
+            for x, y in d_matrix
+        )
+        # This calculates the distances.
+        d_matrix = (
+            (
+                x[0], y[0],
+                get_distance(x_lat=x[1], x_long=x[2], y_lat=y[1], y_long=y[2])
+            )
+            for x, y in d_matrix
         )
         # Generating a new Pandas DataFrame.
         cols = [
@@ -304,6 +330,12 @@ class Dataset(object):
             self.MetaAttribute.DISTANCE,
         ]
         self.__distances = pd.DataFrame(d_matrix, columns=cols)
+        # Removing duplicated distances.
+        group_by = [
+            self.MetaAttribute.PLACE_FROM,
+            self.MetaAttribute.PLACE_TO,
+        ]
+        self.__distances = self.__distances.drop_duplicates(group_by)
 
     def set_tips_drinks_score(self) -> None:
         """
@@ -425,7 +457,8 @@ class Dataset(object):
             raise ValueError("Limit is too low.")
         sort_by = self.MetaAttribute.TIPS_FOOD_SCORE
         cols = [self.MetaAttribute.PLACE_TITLE, sort_by]
-        query = self.__dataset[cols]
+        d = self.__dataset.drop_duplicates(sort_by)
+        query = d[cols]
         query = query.sort_values(sort_by, ascending=False)
         return query.head(limit)
 
@@ -443,7 +476,8 @@ class Dataset(object):
             raise ValueError("Limit is too low.")
         sort_by = self.MetaAttribute.TIPS_DRINKS_SCORE
         cols = [self.MetaAttribute.PLACE_TITLE, sort_by]
-        query = self.__dataset[cols]
+        d = self.__dataset.drop_duplicates(sort_by)
+        query = d[cols]
         query = query.sort_values(sort_by, ascending=False)
         return query.head(limit)
 

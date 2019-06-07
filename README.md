@@ -86,16 +86,14 @@ Returns:
 3  Adams Street Grocery                  10.0
 ------------------------------
 4.1: Restaurants by Food:
-   Place_Title  Tips_FoodScore
-4  Ale on Oak         4.658361
-5  Ale on Oak         4.658361
-6  Ale on Oak         4.658361
+             Place_Title  Tips_FoodScore
+4            Ale on Oak         4.658361
+3  Adams Street Grocery         3.846022
+0             45 Tchoup         0.000000
 ------------------------------
 4.2: Restaurants by Drinks:
-             Place_Title  Tips_DrinkScore
-0             45 Tchoup               0.0
-1  Abita BrewingCompany               0.0
-2  Ace Hotel NewOrleans               0.0
+  Place_Title  Tips_DrinkScore
+0  45 Tchoup               0.0
 ------------------------------
 ```
 
@@ -124,17 +122,19 @@ Returns:
 18109       thetchoupyard                   herbyks  452.422020
 ------------------------------
 2.2: Nearest Restaurants:
-                              Place_To                             Place_From  Distance
-9008         thebourbonsuitesatarnauds             celebrate100yearsatarnauds  0.000000
-24995                     therustynail    sugarbowlextravaganzaattherustynail  0.000000
-13010                              dtb                 decadentnyedinneratdtb  0.000000
-13317               delportorestaurant                               delporto  0.001306
-11155  thewinecellaratcommanderspalace                       commanderspalace  0.004289
-10167                       galatoires  chezchampagnegossetdinneratgalatoires  0.008755
-24797                  sobourestaurant                                  sobou  0.009008
-14250                  domilisespoboys                      domilisespoboybar  0.010898
-2191         thebourbonsuitesatarnauds                     arnaudsfrench75bar  0.012026
-2040        celebrate100yearsatarnauds                     arnaudsfrench75bar  0.012026
+                              Place_To  ...  Distance
+9008         thebourbonsuitesatarnauds  ...  0.000000
+24995                     therustynail  ...  0.000000
+13010                              dtb  ...  0.000000
+13317               delportorestaurant  ...  0.001306
+11155  thewinecellaratcommanderspalace  ...  0.004289
+10167                       galatoires  ...  0.008755
+24797                  sobourestaurant  ...  0.009008
+14250                  domilisespoboys  ...  0.010898
+2191         thebourbonsuitesatarnauds  ...  0.012026
+2040        celebrate100yearsatarnauds  ...  0.012026
+
+[10 rows x 3 columns]
 ------------------------------
 3: Expensive Restaurants:
                                            Place_Title  Tips_ExpensiveScore
