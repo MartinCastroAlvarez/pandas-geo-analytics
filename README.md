@@ -70,16 +70,16 @@ Returns:
 1.2: Unique Restaurants: 5
 ------------------------------
 2.1: Furthest Restaurants:
-               Place_To            Place_From   Distance
-0  abita-brewingcompany             45-tchoup  62.972325
-5  adams-street-grocery  abita-brewingcompany  60.012411
-6            ale-on-oak  abita-brewingcompany  59.821664
+              Place_To           Place_From   Distance
+0  abitabrewingcompany             45tchoup  62.972325
+5   adamsstreetgrocery  abitabrewingcompany  60.012411
+6             aleonoak  abitabrewingcompany  59.821664
 ------------------------------
 2.2: Nearest Restaurants:
-               Place_To            Place_From  Distance
-9            ale-on-oak  adams-street-grocery  0.551171
-2  adams-street-grocery             45-tchoup  3.817219
-3            ale-on-oak             45-tchoup  4.306705
+             Place_To          Place_From  Distance
+9            aleonoak  adamsstreetgrocery  0.551171
+2  adamsstreetgrocery            45tchoup  3.817219
+3            aleonoak            45tchoup  4.306705
 ------------------------------
 3: Expensive Restaurants:
              Place_Title  Tips_ExpensiveScore
@@ -108,33 +108,33 @@ Returns:
 ```
 ------------------------------
 1.1: Total Restaurants: 255
-1.2: Unique Restaurants: 243
+1.2: Unique Restaurants: 228
 ------------------------------
 2.1: Furthest Restaurants:
-                    Place_To                   Place_From    Distance
-20432          rocky-carlo-s                     herbyk-s  459.001952
-20414             panda-king                     herbyk-s  458.999414
-20358  hong-kong-food-market                     herbyk-s  458.936710
-16388               herbyk-s  dong-phuong-oriental-bakery  456.540095
-16227               herbyk-s   dong-phuong-orientalbakery  456.535623
-20404              nineroses                     herbyk-s  455.144799
-20449     tan-dinhrestaurant                     herbyk-s  455.144443
-4068                herbyk-s                    bar-redux  452.847864
-20484       vaughan-s-lounge                     herbyk-s  452.721552
-1302                herbyk-s    algiers-central-marketinc  452.437172
+                 Place_To                Place_From    Distance
+18071         rockycarlos                   herbyks  459.001952
+18055           pandaking                   herbyks  458.999414
+18003  hongkongfoodmarket                   herbyks  458.936710
+14577             herbyks  dongphuongorientalbakery  456.535623
+18047           nineroses                   herbyks  455.144799
+18087   tandinhrestaurant                   herbyks  455.144443
+3597              herbyks                  barredux  452.847864
+18121      vaughanslounge                   herbyks  452.721552
+1221              herbyks   algierscentralmarketinc  452.437172
+18109       thetchoupyard                   herbyks  452.422020
 ------------------------------
 2.2: Nearest Restaurants:
-                                   Place_To                                Place_From  Distance
-19250                         gene-spo-boys                            gene-s-po-boys       0.0
-26000                               oxlot-9                                    oxlot9       0.0
-29382                           verti-marte                                vertimarte       0.0
-27057                    ralph-s-on-thepark                       ralph-s-on-the-park       0.0
-28434                        the-rusty-nail  sugar-bowl-extravaganza-at-the-rustynail       0.0
-12549  the-wine-cellar-at-commander-spalace                        commander-s-palace       0.0
-28997                         the-grillroom                            the-grill-room       0.0
-28227                       sobourestaurant                          sobou-restaurant       0.0
-27258            red-rooster-snowball-stand                 red-rooster-snowballstand       0.0
-18377            frady-s-one-stop-foodstore               frady-s-one-stop-food-store       0.0
+                              Place_To                             Place_From  Distance
+9008         thebourbonsuitesatarnauds             celebrate100yearsatarnauds  0.000000
+24995                     therustynail    sugarbowlextravaganzaattherustynail  0.000000
+13010                              dtb                 decadentnyedinneratdtb  0.000000
+13317               delportorestaurant                               delporto  0.001306
+11155  thewinecellaratcommanderspalace                       commanderspalace  0.004289
+10167                       galatoires  chezchampagnegossetdinneratgalatoires  0.008755
+24797                  sobourestaurant                                  sobou  0.009008
+14250                  domilisespoboys                      domilisespoboybar  0.010898
+2191         thebourbonsuitesatarnauds                     arnaudsfrench75bar  0.012026
+2040        celebrate100yearsatarnauds                     arnaudsfrench75bar  0.012026
 ------------------------------
 3: Expensive Restaurants:
                                            Place_Title  Tips_ExpensiveScore

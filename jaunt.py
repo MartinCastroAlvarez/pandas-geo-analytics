@@ -150,6 +150,19 @@ def find_expensive_items(text: str) -> float:
     return 0
 
 
+def get_slugify_name(text: str) -> str:
+    """
+    Returns the slugified version name of the input.
+
+    @raises: TypeError.
+    """
+    if not isinstance(text, str):
+        raise TypeError("Invalid text:", type(text))
+    text = slugify(text)
+    text = text.replace("-", "")
+    return text
+
+
 # Main class:
 
 
@@ -228,7 +241,7 @@ class Dataset(object):
         slugified title of each restaurant.
         """
         logger.debug("Generating slugified restaurant name.")
-        col = self.__dataset[self.MetaAttribute.PLACE_TITLE].apply(slugify)
+        col = self.__dataset[self.MetaAttribute.PLACE_TITLE].apply(get_slugify_name)
         self.__dataset[self.MetaAttribute.PLACE_SLUG] = col
 
     def set_tips_food_score(self) -> None:
