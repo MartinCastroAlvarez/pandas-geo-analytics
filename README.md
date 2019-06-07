@@ -1,6 +1,8 @@
 # Jaunt Challenge
 
-## Corpus:
+### Spec
+
+### Corpus:
 The input to your program is a text file containing a list of restaurants. The format for the file is:
 Each column is separated by a comma (,) and each line represents a single restaurant. 
 ```
@@ -13,10 +15,10 @@ Each column is separated by a comma (,) and each line represents a single restau
 | Tips          | String        | A brief description of the restaurant  |
 ```
 
-## Goal:
+### Goal:
 The goal of the program is to parse a list of such restaurants and print out to the command line (stdout) answers to the following questions. A list of sample restaurants is sent as a separate file, so you can test your code with them. Assume each question has exactly one valid answer.
 
-## Questions:
+### Questions:
 1. What is the number of unique restaurants present in the file?
 2. Which two restaurants are furthest apart?  which two are closest?  What are the distances?
 3. Which restaurants mention menu items in the `tips` section costing more than $10?
@@ -26,11 +28,15 @@ Category 1: Restaurants known for drinks
 Category 2: Restaurants known for food
 ```
 
-## Instructions:
+## Usage
+
+### Download
 Download the app from GitHub:
 ```
 git clone https://github.com/MartinCastroAlvarez/jaunt.git
 ```
+
+### Installation
 Install the application using these instructions:
 ```
 cd jaunt
@@ -38,6 +44,8 @@ virtualenv -p python3 .env
 source .env/bin/activate
 pip install -r requirements.txt
 ```
+
+### Usage
 Run the script. Checkout out all the script flags:
 ```
 python3 jaunt.py --help
@@ -58,7 +66,9 @@ optional arguments:
   --path PATH, -p PATH  Datasource path. (default: ./restaurants.csv)
 ```
 
-## Examples 1:
+## Examples
+
+### Examples 1
 Run the script using the small dataset version:
 ```
 python3 jaunt.py --path small.csv --limit 3
@@ -97,7 +107,7 @@ Returns:
 ------------------------------
 ```
 
-## Examples 2:
+### Examples 2
 Use the large dataset to extract results:
 ```
 python3 jaunt.py --path restaurants.csv --limit 10
