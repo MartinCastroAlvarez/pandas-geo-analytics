@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ```
 
 ### Usage
-Run the script. Checkout out all the script flags:
+Run the script. Check all the script flags:
 ```
 python3 jaunt.py --help
 ```
